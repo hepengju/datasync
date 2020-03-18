@@ -2,10 +2,14 @@ package com.hepengju.datasync.service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +59,7 @@ public class ScheduleService {
 	/**
 	 * 定时调度
 	 */
+	@SneakyThrows
 	@Scheduled(cron = "${scheduleCron}")
 	public synchronized void schedule() {
 		logger.info("schedule begin");
@@ -72,7 +77,7 @@ public class ScheduleService {
 		
 		//数据移动
 		dataSyncConfigList.forEach(dataSyncService::dataSync);
-		
+		//dataSyncConfigList.stream().parallel().forEach(dataSyncService::dataSync);
 		dbNameSet.forEach(dataSyncService::destroyDataSource);
 		logger.info("schedule end");
 	}

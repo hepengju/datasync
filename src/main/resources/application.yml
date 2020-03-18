@@ -4,39 +4,48 @@ runOnSchedule: false
 scheduleCron: "0 0 1 * * ?"
 
 # 数据源配置: Map结构,key为DbName字符串,value为详细配置信息
-dataSourceConfigMap: 
-  mysql-ossadmin:
-      driverClassName: com.mysql.jdbc.Driver
-      jdbcUrl: jdbc:mysql://192.169.2.251:3306/oss6?useSSL=false
-      username: ossadmin
-      password: 1qaz@WSX
-  oracle-ossadmin:
-      driverClassName: oracle.jdbc.OracleDriver
-      jdbcUrl: jdbc:oracle:thin:@192.169.2.251:1521:orcl
-      username: ossadmin
-      password: ossadmin
+dataSourceConfigMap:
+  oracle:
+    driverClassName: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@10.10.128.102:1521:leasing
+    username: chengtayleasing
+    password: "!QAZ2wsx"
+  mysql:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://10.10.128.107:3306/new_admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+
     
 # 数据移动配置: List结构
 dataSyncConfigList: 
 
-# oss关键表(20)同步: mysql --> oracle
-  - {srcDbName: mysql-ossadmin, srcTableName: z010_org                  ,tarDbName: oracle-ossadmin, tarTableName: z010_org                  }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z010_perm                 ,tarDbName: oracle-ossadmin, tarTableName: z010_perm                 }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z010_resource             ,tarDbName: oracle-ossadmin, tarTableName: z010_resource             }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z010_role                 ,tarDbName: oracle-ossadmin, tarTableName: z010_role                 }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z010_user                 ,tarDbName: oracle-ossadmin, tarTableName: z010_user                 }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z011_role_resource        ,tarDbName: oracle-ossadmin, tarTableName: z011_role_resource        }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z011_user_org             ,tarDbName: oracle-ossadmin, tarTableName: z011_user_org             }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z011_user_perm            ,tarDbName: oracle-ossadmin, tarTableName: z011_user_perm            }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z011_user_role            ,tarDbName: oracle-ossadmin, tarTableName: z011_user_role            }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z030_job_quartz           ,tarDbName: oracle-ossadmin, tarTableName: z030_job_quartz           }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z030_job_rpt              ,tarDbName: oracle-ossadmin, tarTableName: z030_job_rpt              }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z040_notify_template      ,tarDbName: oracle-ossadmin, tarTableName: z040_notify_template      }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_db_config            ,tarDbName: oracle-ossadmin, tarTableName: z090_db_config            }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_ftp_config           ,tarDbName: oracle-ossadmin, tarTableName: z090_ftp_config           }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_report_chart_config  ,tarDbName: oracle-ossadmin, tarTableName: z090_report_chart_config  }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_report_config        ,tarDbName: oracle-ossadmin, tarTableName: z090_report_config        }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_report_field_config  ,tarDbName: oracle-ossadmin, tarTableName: z090_report_field_config  }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_report_query_config  ,tarDbName: oracle-ossadmin, tarTableName: z090_report_query_config  }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z090_user_config          ,tarDbName: oracle-ossadmin, tarTableName: z090_user_config          }  
-  - {srcDbName: mysql-ossadmin, srcTableName: z099_code                 ,tarDbName: oracle-ossadmin, tarTableName: z099_code                 }  
+# 表同步: oracle --> mysql
+  - {srcDbName: oracle, srcTableName: BF_ACCOUNT_ROLE              ,tarDbName: mysql, tarTableName: BF_ACCOUNT_ROLE              }
+  - {srcDbName: oracle, srcTableName: BF_BANK                      ,tarDbName: mysql, tarTableName: BF_BANK                      }
+  - {srcDbName: oracle, srcTableName: BF_BUSINESS_USER             ,tarDbName: mysql, tarTableName: BF_BUSINESS_USER             }
+  - {srcDbName: oracle, srcTableName: BF_BUSINESS_USER_EXPAND      ,tarDbName: mysql, tarTableName: BF_BUSINESS_USER_EXPAND      }
+  - {srcDbName: oracle, srcTableName: BF_DICTITEM                  ,tarDbName: mysql, tarTableName: BF_DICTITEM                  }
+  - {srcDbName: oracle, srcTableName: BF_DICTVALUE                 ,tarDbName: mysql, tarTableName: BF_DICTVALUE                 }
+  - {srcDbName: oracle, srcTableName: BF_LOGINFAILLOG              ,tarDbName: mysql, tarTableName: BF_LOGINFAILLOG              }
+  - {srcDbName: oracle, srcTableName: BF_LOGINLOG                  ,tarDbName: mysql, tarTableName: BF_LOGINLOG                  }
+  - {srcDbName: oracle, srcTableName: BF_MENU                      ,tarDbName: mysql, tarTableName: BF_MENU                      }
+  - {srcDbName: oracle, srcTableName: BF_MENUFUNC                  ,tarDbName: mysql, tarTableName: BF_MENUFUNC                  }
+  - {srcDbName: oracle, srcTableName: BF_ORGANIZATION              ,tarDbName: mysql, tarTableName: BF_ORGANIZATION              }
+  - {srcDbName: oracle, srcTableName: BF_ORG_BUSINESSSEGMENTS      ,tarDbName: mysql, tarTableName: BF_ORG_BUSINESSSEGMENTS      }
+  - {srcDbName: oracle, srcTableName: BF_POST_ROLE                 ,tarDbName: mysql, tarTableName: BF_POST_ROLE                 }
+  - {srcDbName: oracle, srcTableName: BF_REGION                    ,tarDbName: mysql, tarTableName: BF_REGION                    }
+  - {srcDbName: oracle, srcTableName: BF_ROLE                      ,tarDbName: mysql, tarTableName: BF_ROLE                      }
+  - {srcDbName: oracle, srcTableName: BF_ROLE_MENU                 ,tarDbName: mysql, tarTableName: BF_ROLE_MENU                 }
+  - {srcDbName: oracle, srcTableName: BF_SYSTEMPARAMETER           ,tarDbName: mysql, tarTableName: BF_SYSTEMPARAMETER           }
+  - {srcDbName: oracle, srcTableName: BF_USER                      ,tarDbName: mysql, tarTableName: BF_USER                      }
+  - {srcDbName: oracle, srcTableName: BF_USER_HANDOVER_LOG         ,tarDbName: mysql, tarTableName: BF_USER_HANDOVER_LOG         }
+  - {srcDbName: oracle, srcTableName: SYS_DICTTREE                 ,tarDbName: mysql, tarTableName: SYS_DICTTREE                 }
+  - {srcDbName: oracle, srcTableName: CTC_DIFF_RECORD              ,tarDbName: mysql, tarTableName: CTC_DIFF_RECORD              }
+  - {srcDbName: oracle, srcTableName: CTC_CONFIG_EMAIL             ,tarDbName: mysql, tarTableName: CTC_CONFIG_EMAIL             }
+  - {srcDbName: oracle, srcTableName: CTC_CONFIG_MESSAGE_TEMPLATE  ,tarDbName: mysql, tarTableName: CTC_CONFIG_MESSAGE_TEMPLATE  }
+  - {srcDbName: oracle, srcTableName: CTC_INNER_MSG                ,tarDbName: mysql, tarTableName: CTC_INNER_MSG                }
+  - {srcDbName: oracle, srcTableName: CTC_MESSAGE_SEND_RECORD      ,tarDbName: mysql, tarTableName: CTC_MESSAGE_SEND_RECORD      }
+  - {srcDbName: oracle, srcTableName: BF_FILEMANAGE                ,tarDbName: mysql, tarTableName: BF_FILEMANAGE                }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_DOC             ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_DOC             }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_FILE_DELIVERY   ,tarDbName: mysql, tarTableName: CTC_CONTRACT_FILE_DELIVERY   }
