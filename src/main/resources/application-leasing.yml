@@ -1,0 +1,180 @@
+# 定时任务配置
+runOnStart: true
+runOnSchedule: false
+scheduleCron: "0 0 1 * * ?"
+
+# 数据源配置: Map结构,key为DbName字符串,value为详细配置信息
+dataSourceConfigMap:
+  oracle:
+    driverClassName: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@10.10.128.102:1521:leasing
+    username: chengtayleasing
+    password: "!QAZ2wsx"
+  mysql:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://10.10.128.106:3307/leasing?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+
+    
+# 数据移动配置: List结构
+dataSyncConfigList: 
+
+# 表同步: oracle --> mysql
+  - {srcDbName: oracle, srcTableName: APP_LOGIN_LOG                               ,tarDbName: mysql, tarTableName: APP_LOGIN_LOG                               }
+  - {srcDbName: oracle, srcTableName: APP_USER                                    ,tarDbName: mysql, tarTableName: APP_USER                                    }
+  - {srcDbName: oracle, srcTableName: APP_USER_CONTACT                            ,tarDbName: mysql, tarTableName: APP_USER_CONTACT                            }
+  - {srcDbName: oracle, srcTableName: APP_USER_SMS                                ,tarDbName: mysql, tarTableName: APP_USER_SMS                                }
+  - {srcDbName: oracle, srcTableName: ASK_STATISTICS                              ,tarDbName: mysql, tarTableName: ASK_STATISTICS                              }
+  - {srcDbName: oracle, srcTableName: BF_ASK                                      ,tarDbName: mysql, tarTableName: BF_ASK                                      }
+  - {srcDbName: oracle, srcTableName: BF_CATEGORY                                 ,tarDbName: mysql, tarTableName: BF_CATEGORY                                 }
+  - {srcDbName: oracle, srcTableName: BF_REPORT_SORT                              ,tarDbName: mysql, tarTableName: BF_REPORT_SORT                              }
+  - {srcDbName: oracle, srcTableName: CASHFUNDOCCUPDETAIL                         ,tarDbName: mysql, tarTableName: CASHFUNDOCCUPDETAIL                         }
+  - {srcDbName: oracle, srcTableName: CPPLANBASEINFO                              ,tarDbName: mysql, tarTableName: CPPLANBASEINFO                              }
+  - {srcDbName: oracle, srcTableName: CTC_ADVERT_MANAGE                           ,tarDbName: mysql, tarTableName: CTC_ADVERT_MANAGE                           }
+  - {srcDbName: oracle, srcTableName: CTC_ASSIGNMENT_TASK                         ,tarDbName: mysql, tarTableName: CTC_ASSIGNMENT_TASK                         }
+  - {srcDbName: oracle, srcTableName: CTC_BIG_ISSUES                              ,tarDbName: mysql, tarTableName: CTC_BIG_ISSUES                              }
+  - {srcDbName: oracle, srcTableName: CTC_BLACK_REASON                            ,tarDbName: mysql, tarTableName: CTC_BLACK_REASON                            }
+  - {srcDbName: oracle, srcTableName: CTC_BUSINESS_PARAMETER                      ,tarDbName: mysql, tarTableName: CTC_BUSINESS_PARAMETER                      }
+  - {srcDbName: oracle, srcTableName: CTC_CONFIG_REMIND                           ,tarDbName: mysql, tarTableName: CTC_CONFIG_REMIND                           }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_INFO                           ,tarDbName: mysql, tarTableName: CTC_CONTRACT_INFO                           }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_INVENTORY                      ,tarDbName: mysql, tarTableName: CTC_CONTRACT_INVENTORY                      }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_TEXT                           ,tarDbName: mysql, tarTableName: CTC_CONTRACT_TEXT                           }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_TEXTREVIEW                     ,tarDbName: mysql, tarTableName: CTC_CONTRACT_TEXTREVIEW                     }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_TEXT_HISTORY                   ,tarDbName: mysql, tarTableName: CTC_CONTRACT_TEXT_HISTORY                   }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_TEXT_LOG                       ,tarDbName: mysql, tarTableName: CTC_CONTRACT_TEXT_LOG                       }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_TEXT_SIGN                      ,tarDbName: mysql, tarTableName: CTC_CONTRACT_TEXT_SIGN                      }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_COMPANY                          ,tarDbName: mysql, tarTableName: CTC_CREDIT_COMPANY                          }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_FILE_HISTORY                     ,tarDbName: mysql, tarTableName: CTC_CREDIT_FILE_HISTORY                     }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_INFO                             ,tarDbName: mysql, tarTableName: CTC_CREDIT_INFO                             }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_INFO_CONTACT                     ,tarDbName: mysql, tarTableName: CTC_CREDIT_INFO_CONTACT                     }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_INVENTORY                        ,tarDbName: mysql, tarTableName: CTC_CREDIT_INVENTORY                        }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_INVENTORY_SPLIT                  ,tarDbName: mysql, tarTableName: CTC_CREDIT_INVENTORY_SPLIT                  }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_INVESTIGION_REL                  ,tarDbName: mysql, tarTableName: CTC_CREDIT_INVESTIGION_REL                  }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_WARRANTOR                        ,tarDbName: mysql, tarTableName: CTC_CREDIT_WARRANTOR                        }
+  - {srcDbName: oracle, srcTableName: CTC_CREDIT_WORK                             ,tarDbName: mysql, tarTableName: CTC_CREDIT_WORK                             }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_BLACKLIST                      ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_BLACKLIST                      }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_CREDIT                         ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_CREDIT                         }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_DISTRIBUTE_LOG                 ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_DISTRIBUTE_LOG                 }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_ENTERPRISE                     ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_ENTERPRISE                     }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_INDIVIDUAL                     ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_INDIVIDUAL                     }
+  - {srcDbName: oracle, srcTableName: CTC_ELEMENTS_COMPANY                        ,tarDbName: mysql, tarTableName: CTC_ELEMENTS_COMPANY                        }
+  - {srcDbName: oracle, srcTableName: CTC_ELEMENTS_INFO                           ,tarDbName: mysql, tarTableName: CTC_ELEMENTS_INFO                           }
+  - {srcDbName: oracle, srcTableName: CTC_ELEMENTS_WARRANTOR                      ,tarDbName: mysql, tarTableName: CTC_ELEMENTS_WARRANTOR                      }
+  - {srcDbName: oracle, srcTableName: CTC_ENTERPRISE_ACCOUNT                      ,tarDbName: mysql, tarTableName: CTC_ENTERPRISE_ACCOUNT                      }
+  - {srcDbName: oracle, srcTableName: CTC_ENTERPRISE_CONTACT                      ,tarDbName: mysql, tarTableName: CTC_ENTERPRISE_CONTACT                      }
+  - {srcDbName: oracle, srcTableName: CTC_EQUIPMENT_CLASSIFY                      ,tarDbName: mysql, tarTableName: CTC_EQUIPMENT_CLASSIFY                      }
+  - {srcDbName: oracle, srcTableName: CTC_EQUIPMENT_CLASS_BRAND                   ,tarDbName: mysql, tarTableName: CTC_EQUIPMENT_CLASS_BRAND                   }
+  - {srcDbName: oracle, srcTableName: CTC_EQUIPMENT_CLASS_DIRECTOR                ,tarDbName: mysql, tarTableName: CTC_EQUIPMENT_CLASS_DIRECTOR                }
+  - {srcDbName: oracle, srcTableName: CTC_EQUIPMENT_PRICING                       ,tarDbName: mysql, tarTableName: CTC_EQUIPMENT_PRICING                       }
+  - {srcDbName: oracle, srcTableName: CTC_FACILITY_INVENTORY                      ,tarDbName: mysql, tarTableName: CTC_FACILITY_INVENTORY                      }
+  - {srcDbName: oracle, srcTableName: CTC_FACILITY_PRICEREF                       ,tarDbName: mysql, tarTableName: CTC_FACILITY_PRICEREF                       }
+  - {srcDbName: oracle, srcTableName: CTC_FILE_DATAPUSH                           ,tarDbName: mysql, tarTableName: CTC_FILE_DATAPUSH                           }
+  - {srcDbName: oracle, srcTableName: CTC_FILE_HISTORY                            ,tarDbName: mysql, tarTableName: CTC_FILE_HISTORY                            }
+  - {srcDbName: oracle, srcTableName: CTC_GPS_APPLY_NO                            ,tarDbName: mysql, tarTableName: CTC_GPS_APPLY_NO                            }
+  - {srcDbName: oracle, srcTableName: CTC_GPS_INSTALL_INFO                        ,tarDbName: mysql, tarTableName: CTC_GPS_INSTALL_INFO                        }
+  - {srcDbName: oracle, srcTableName: CTC_GPS_MANAGE                              ,tarDbName: mysql, tarTableName: CTC_GPS_MANAGE                              }
+  - {srcDbName: oracle, srcTableName: CTC_GPS_MANAGER                             ,tarDbName: mysql, tarTableName: CTC_GPS_MANAGER                             }
+  - {srcDbName: oracle, srcTableName: CTC_GPS_QUERY_RESULT                        ,tarDbName: mysql, tarTableName: CTC_GPS_QUERY_RESULT                        }
+  - {srcDbName: oracle, srcTableName: CTC_GPS_TERMINAL                            ,tarDbName: mysql, tarTableName: CTC_GPS_TERMINAL                            }
+  - {srcDbName: oracle, srcTableName: CTC_HELP_QUESTION                           ,tarDbName: mysql, tarTableName: CTC_HELP_QUESTION                           }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_BUSINESS_MATTER                    ,tarDbName: mysql, tarTableName: CTC_INFO_BUSINESS_MATTER                    }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_CTPAY_APPROVE                      ,tarDbName: mysql, tarTableName: CTC_INFO_CTPAY_APPROVE                      }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_CTPAY_APPROVE_ITEM                 ,tarDbName: mysql, tarTableName: CTC_INFO_CTPAY_APPROVE_ITEM                 }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_PAYMENT_PRE                        ,tarDbName: mysql, tarTableName: CTC_INFO_PAYMENT_PRE                        }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_PAY_APPROVE                        ,tarDbName: mysql, tarTableName: CTC_INFO_PAY_APPROVE                        }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_PAY_APPROVE_ITEMS                  ,tarDbName: mysql, tarTableName: CTC_INFO_PAY_APPROVE_ITEMS                  }
+  - {srcDbName: oracle, srcTableName: CTC_INFO_TEXTREVIEW                         ,tarDbName: mysql, tarTableName: CTC_INFO_TEXTREVIEW                         }
+  - {srcDbName: oracle, srcTableName: CTC_INSURANCE_INVENTORY                     ,tarDbName: mysql, tarTableName: CTC_INSURANCE_INVENTORY                     }
+  - {srcDbName: oracle, srcTableName: CTC_INSURANCE_TEMPLATE                      ,tarDbName: mysql, tarTableName: CTC_INSURANCE_TEMPLATE                      }
+  - {srcDbName: oracle, srcTableName: CTC_INSURE_FILE_HISTORY                     ,tarDbName: mysql, tarTableName: CTC_INSURE_FILE_HISTORY                     }
+  - {srcDbName: oracle, srcTableName: CTC_INSURE_INFO                             ,tarDbName: mysql, tarTableName: CTC_INSURE_INFO                             }
+  - {srcDbName: oracle, srcTableName: CTC_INVENTORY_FINANCE                       ,tarDbName: mysql, tarTableName: CTC_INVENTORY_FINANCE                       }
+  - {srcDbName: oracle, srcTableName: CTC_INVERSTMENT_CUS_RELATION                ,tarDbName: mysql, tarTableName: CTC_INVERSTMENT_CUS_RELATION                }
+  - {srcDbName: oracle, srcTableName: CTC_INVESTMENT_CALCULATING                  ,tarDbName: mysql, tarTableName: CTC_INVESTMENT_CALCULATING                  }
+  - {srcDbName: oracle, srcTableName: CTC_INVESTMENT_FACILITY                     ,tarDbName: mysql, tarTableName: CTC_INVESTMENT_FACILITY                     }
+  - {srcDbName: oracle, srcTableName: CTC_INVESTMENT_MANAGER                      ,tarDbName: mysql, tarTableName: CTC_INVESTMENT_MANAGER                      }
+  - {srcDbName: oracle, srcTableName: CTC_INVESTMENT_RULE                         ,tarDbName: mysql, tarTableName: CTC_INVESTMENT_RULE                         }
+  - {srcDbName: oracle, srcTableName: CTC_INV_PROVIDER_RECORD                     ,tarDbName: mysql, tarTableName: CTC_INV_PROVIDER_RECORD                     }
+  - {srcDbName: oracle, srcTableName: CTC_INV_RECORD_FILE_HISTORY                 ,tarDbName: mysql, tarTableName: CTC_INV_RECORD_FILE_HISTORY                 }
+  - {srcDbName: oracle, srcTableName: CTC_INV_RECORD_HISTORY_INFO                 ,tarDbName: mysql, tarTableName: CTC_INV_RECORD_HISTORY_INFO                 }
+  - {srcDbName: oracle, srcTableName: CTC_LINE_BASEINFO                           ,tarDbName: mysql, tarTableName: CTC_LINE_BASEINFO                           }
+  - {srcDbName: oracle, srcTableName: CTC_MBGL_SUIT                               ,tarDbName: mysql, tarTableName: CTC_MBGL_SUIT                               }
+  - {srcDbName: oracle, srcTableName: CTC_MBGL_SUIT_TEMPLATE                      ,tarDbName: mysql, tarTableName: CTC_MBGL_SUIT_TEMPLATE                      }
+  - {srcDbName: oracle, srcTableName: CTC_MBGL_TAG_TABLE                          ,tarDbName: mysql, tarTableName: CTC_MBGL_TAG_TABLE                          }
+  - {srcDbName: oracle, srcTableName: CTC_MBGL_TEMPLATE                           ,tarDbName: mysql, tarTableName: CTC_MBGL_TEMPLATE                           }
+  - {srcDbName: oracle, srcTableName: CTC_MBGL_TEMPLATE_TAG                       ,tarDbName: mysql, tarTableName: CTC_MBGL_TEMPLATE_TAG                       }
+  - {srcDbName: oracle, srcTableName: CTC_MBGL_TEMPLATE_TAG_INFO                  ,tarDbName: mysql, tarTableName: CTC_MBGL_TEMPLATE_TAG_INFO                  }
+  - {srcDbName: oracle, srcTableName: CTC_ONLINE_INCOMING                         ,tarDbName: mysql, tarTableName: CTC_ONLINE_INCOMING                         }
+  - {srcDbName: oracle, srcTableName: CTC_ORDER                                   ,tarDbName: mysql, tarTableName: CTC_ORDER                                   }
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_CONFIRM_INFO                    ,tarDbName: mysql, tarTableName: CTC_PAYMENT_CONFIRM_INFO                    }
+  - {srcDbName: oracle, srcTableName: CTC_PAY_APPROVE_FILE_HISTORY                ,tarDbName: mysql, tarTableName: CTC_PAY_APPROVE_FILE_HISTORY                }
+  - {srcDbName: oracle, srcTableName: CTC_PRODUCT_CREDIT                          ,tarDbName: mysql, tarTableName: CTC_PRODUCT_CREDIT                          }
+  - {srcDbName: oracle, srcTableName: CTC_PRODUCT_CREDIT_FINANCE                  ,tarDbName: mysql, tarTableName: CTC_PRODUCT_CREDIT_FINANCE                  }
+  - {srcDbName: oracle, srcTableName: CTC_PRODUCT_FINANCE                         ,tarDbName: mysql, tarTableName: CTC_PRODUCT_FINANCE                         }
+  - {srcDbName: oracle, srcTableName: CTC_PRODUCT_FINANCE_CITY                    ,tarDbName: mysql, tarTableName: CTC_PRODUCT_FINANCE_CITY                    }
+  - {srcDbName: oracle, srcTableName: CTC_PRODUCT_LEASETYPE                       ,tarDbName: mysql, tarTableName: CTC_PRODUCT_LEASETYPE                       }
+  - {srcDbName: oracle, srcTableName: CTC_PROJECT_SCHEME                          ,tarDbName: mysql, tarTableName: CTC_PROJECT_SCHEME                          }
+  - {srcDbName: oracle, srcTableName: CTC_PROJECT_SCHEME_PAYMENT                  ,tarDbName: mysql, tarTableName: CTC_PROJECT_SCHEME_PAYMENT                  }
+  - {srcDbName: oracle, srcTableName: CTC_PROJECT_SCHEME_TEMPLATE                 ,tarDbName: mysql, tarTableName: CTC_PROJECT_SCHEME_TEMPLATE                 }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_PRECREDIT                      ,tarDbName: mysql, tarTableName: CTC_PROVIDER_PRECREDIT                      }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_PRECREDIT_CHANGE               ,tarDbName: mysql, tarTableName: CTC_PROVIDER_PRECREDIT_CHANGE               }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_PRECREDIT_FILE                 ,tarDbName: mysql, tarTableName: CTC_PROVIDER_PRECREDIT_FILE                 }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD                         ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD                         }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD_CHANGE                  ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD_CHANGE                  }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD_CHAN_CAR                ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD_CHAN_CAR                }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD_DEALER                  ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD_DEALER                  }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD_FILE                    ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD_FILE                    }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD_STRATEGY                ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD_STRATEGY                }
+  - {srcDbName: oracle, srcTableName: CTC_PROVIDER_RECORD_VENDOR                  ,tarDbName: mysql, tarTableName: CTC_PROVIDER_RECORD_VENDOR                  }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ADENSE                             ,tarDbName: mysql, tarTableName: CTC_SHOP_ADENSE                             }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ARTICLE                            ,tarDbName: mysql, tarTableName: CTC_SHOP_ARTICLE                            }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ARTICLE_CATGORY                    ,tarDbName: mysql, tarTableName: CTC_SHOP_ARTICLE_CATGORY                    }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_COLUMN                             ,tarDbName: mysql, tarTableName: CTC_SHOP_COLUMN                             }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_COLUMN_BRAND                       ,tarDbName: mysql, tarTableName: CTC_SHOP_COLUMN_BRAND                       }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_COLUMN_CATEGORY                    ,tarDbName: mysql, tarTableName: CTC_SHOP_COLUMN_CATEGORY                    }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_FRIENDLINK                         ,tarDbName: mysql, tarTableName: CTC_SHOP_FRIENDLINK                         }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_MANAGE                             ,tarDbName: mysql, tarTableName: CTC_SHOP_MANAGE                             }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ORDER_ACCEPT                       ,tarDbName: mysql, tarTableName: CTC_SHOP_ORDER_ACCEPT                       }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ORDER_APPLY                        ,tarDbName: mysql, tarTableName: CTC_SHOP_ORDER_APPLY                        }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ORDER_DEVICE                       ,tarDbName: mysql, tarTableName: CTC_SHOP_ORDER_DEVICE                       }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ORDER_HANDLE                       ,tarDbName: mysql, tarTableName: CTC_SHOP_ORDER_HANDLE                       }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ORDER_LOG                          ,tarDbName: mysql, tarTableName: CTC_SHOP_ORDER_LOG                          }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_ORDER_PROCESS                      ,tarDbName: mysql, tarTableName: CTC_SHOP_ORDER_PROCESS                      }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_PRODUCT_BRAND                      ,tarDbName: mysql, tarTableName: CTC_SHOP_PRODUCT_BRAND                      }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_PRODUCT_CATEGORY                   ,tarDbName: mysql, tarTableName: CTC_SHOP_PRODUCT_CATEGORY                   }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_PRODUCT_LIST                       ,tarDbName: mysql, tarTableName: CTC_SHOP_PRODUCT_LIST                       }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_PRODUCT_LIST_PROPERTY              ,tarDbName: mysql, tarTableName: CTC_SHOP_PRODUCT_LIST_PROPERTY              }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_PRODUCT_PROPERTY                   ,tarDbName: mysql, tarTableName: CTC_SHOP_PRODUCT_PROPERTY                   }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_PRODUCT_TYPE                       ,tarDbName: mysql, tarTableName: CTC_SHOP_PRODUCT_TYPE                       }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_QUESTION                           ,tarDbName: mysql, tarTableName: CTC_SHOP_QUESTION                           }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_QUESTION_REPLYTEXT                 ,tarDbName: mysql, tarTableName: CTC_SHOP_QUESTION_REPLYTEXT                 }
+  - {srcDbName: oracle, srcTableName: CTC_SHOP_USER                               ,tarDbName: mysql, tarTableName: CTC_SHOP_USER                               }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_CONTRACT_CHANGE               ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_CONTRACT_CHANGE               }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_DEAL_TRACK                    ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_DEAL_TRACK                    }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_MORTGAGE                      ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_MORTGAGE                      }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_OVERDUE                       ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_OVERDUE                       }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_RECEIPT_DETAILED              ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_RECEIPT_DETAILED              }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_SETTLEMENT                    ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_SETTLEMENT                    }
+  - {srcDbName: oracle, srcTableName: CTC_SUBSIDIES_WITHHOLD                      ,tarDbName: mysql, tarTableName: CTC_SUBSIDIES_WITHHOLD                      }
+  - {srcDbName: oracle, srcTableName: CTC_TASK_COMMENT                            ,tarDbName: mysql, tarTableName: CTC_TASK_COMMENT                            }
+  - {srcDbName: oracle, srcTableName: DC_CONTRACT                                 ,tarDbName: mysql, tarTableName: DC_CONTRACT                                 }
+  - {srcDbName: oracle, srcTableName: DC_CONTRACT_COMPARE                         ,tarDbName: mysql, tarTableName: DC_CONTRACT_COMPARE                         }
+  - {srcDbName: oracle, srcTableName: DC_CONTRACT_LOG                             ,tarDbName: mysql, tarTableName: DC_CONTRACT_LOG                             }
+  - {srcDbName: oracle, srcTableName: DC_MAP_CUSTOMER                             ,tarDbName: mysql, tarTableName: DC_MAP_CUSTOMER                             }
+  - {srcDbName: oracle, srcTableName: DC_MAP_ORG                                  ,tarDbName: mysql, tarTableName: DC_MAP_ORG                                  }
+  - {srcDbName: oracle, srcTableName: DC_MAP_SUPPLIER                             ,tarDbName: mysql, tarTableName: DC_MAP_SUPPLIER                             }
+  - {srcDbName: oracle, srcTableName: DC_MAP_USER                                 ,tarDbName: mysql, tarTableName: DC_MAP_USER                                 }
+  - {srcDbName: oracle, srcTableName: DC_USERMAP                                  ,tarDbName: mysql, tarTableName: DC_USERMAP                                  }
+  - {srcDbName: oracle, srcTableName: ETL_INFO                                    ,tarDbName: mysql, tarTableName: ETL_INFO                                    }
+  - {srcDbName: oracle, srcTableName: ETL_LOG                                     ,tarDbName: mysql, tarTableName: ETL_LOG                                     }
+  - {srcDbName: oracle, srcTableName: FUNDPLANINFO                                ,tarDbName: mysql, tarTableName: FUNDPLANINFO                                }
+  - {srcDbName: oracle, srcTableName: RENTCALBASEINFO                             ,tarDbName: mysql, tarTableName: RENTCALBASEINFO                             }
+  - {srcDbName: oracle, srcTableName: RENTCALLOGINFO                              ,tarDbName: mysql, tarTableName: RENTCALLOGINFO                              }
+  - {srcDbName: oracle, srcTableName: RENTPLANINFO                                ,tarDbName: mysql, tarTableName: RENTPLANINFO                                }
+  - {srcDbName: oracle, srcTableName: RINTHANDFEEINFO                             ,tarDbName: mysql, tarTableName: RINTHANDFEEINFO                             }
+  - {srcDbName: oracle, srcTableName: MYPROVINCE                                  ,tarDbName: mysql, tarTableName: MYPROVINCE                                  }
+  - {srcDbName: oracle, srcTableName: CTC_PROCEEDS_SHOULD_INFO                    ,tarDbName: mysql, tarTableName: CTC_PROCEEDS_SHOULD_INFO                    }
+  - {srcDbName: oracle, srcTableName: CTC_PROCEEDS_ACTUAL_INFO                    ,tarDbName: mysql, tarTableName: CTC_PROCEEDS_ACTUAL_INFO                    }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_SIGN_MANAGER                   ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_SIGN_MANAGER                   }
+

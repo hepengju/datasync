@@ -1,0 +1,51 @@
+# 定时任务配置
+runOnStart: true
+runOnSchedule: false
+scheduleCron: "0 0 1 * * ?"
+
+# 数据源配置: Map结构,key为DbName字符串,value为详细配置信息
+dataSourceConfigMap:
+  oracle:
+    driverClassName: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@10.10.128.102:1521:leasing
+    username: chengtayleasing
+    password: "!QAZ2wsx"
+  mysql:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://10.10.128.106:3307/activiti?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+
+    
+# 数据移动配置: List结构
+dataSyncConfigList: 
+
+# 表同步: oracle --> mysql
+  - {srcDbName: oracle, srcTableName: ACT_CT_AUTH                ,tarDbName: mysql, tarTableName: ACT_CT_AUTH                }
+  - {srcDbName: oracle, srcTableName: ACT_CT_CIRCULATE           ,tarDbName: mysql, tarTableName: ACT_CT_CIRCULATE           }
+  - {srcDbName: oracle, srcTableName: ACT_CT_CIRCULATE_COMMENT   ,tarDbName: mysql, tarTableName: ACT_CT_CIRCULATE_COMMENT   }
+  - {srcDbName: oracle, srcTableName: ACT_CT_DELEGATE            ,tarDbName: mysql, tarTableName: ACT_CT_DELEGATE            }
+  - {srcDbName: oracle, srcTableName: ACT_CT_TASK_POOL_RECORD    ,tarDbName: mysql, tarTableName: ACT_CT_TASK_POOL_RECORD    }
+  - {srcDbName: oracle, srcTableName: ACT_CT_TRANSFER            ,tarDbName: mysql, tarTableName: ACT_CT_TRANSFER            }
+  - {srcDbName: oracle, srcTableName: ACT_RU_PARAM               ,tarDbName: mysql, tarTableName: ACT_RU_PARAM               }
+  - {srcDbName: oracle, srcTableName: ACT_EVT_LOG                ,tarDbName: mysql, tarTableName: ACT_EVT_LOG                }
+  - {srcDbName: oracle, srcTableName: ACT_GE_BYTEARRAY           ,tarDbName: mysql, tarTableName: ACT_GE_BYTEARRAY           }
+  - {srcDbName: oracle, srcTableName: ACT_GE_PROPERTY            ,tarDbName: mysql, tarTableName: ACT_GE_PROPERTY            }
+  - {srcDbName: oracle, srcTableName: ACT_HI_ACTINST             ,tarDbName: mysql, tarTableName: ACT_HI_ACTINST             }
+  - {srcDbName: oracle, srcTableName: ACT_HI_ATTACHMENT          ,tarDbName: mysql, tarTableName: ACT_HI_ATTACHMENT          }
+  - {srcDbName: oracle, srcTableName: ACT_HI_COMMENT             ,tarDbName: mysql, tarTableName: ACT_HI_COMMENT             }
+  - {srcDbName: oracle, srcTableName: ACT_HI_DETAIL              ,tarDbName: mysql, tarTableName: ACT_HI_DETAIL              }
+  - {srcDbName: oracle, srcTableName: ACT_HI_IDENTITYLINK        ,tarDbName: mysql, tarTableName: ACT_HI_IDENTITYLINK        }
+  - {srcDbName: oracle, srcTableName: ACT_HI_PROCINST            ,tarDbName: mysql, tarTableName: ACT_HI_PROCINST            }
+  - {srcDbName: oracle, srcTableName: ACT_HI_TASKINST            ,tarDbName: mysql, tarTableName: ACT_HI_TASKINST            }
+  - {srcDbName: oracle, srcTableName: ACT_HI_VARINST             ,tarDbName: mysql, tarTableName: ACT_HI_VARINST             }
+  - {srcDbName: oracle, srcTableName: ACT_PROCDEF_INFO           ,tarDbName: mysql, tarTableName: ACT_PROCDEF_INFO           }
+  - {srcDbName: oracle, srcTableName: ACT_RE_DEPLOYMENT          ,tarDbName: mysql, tarTableName: ACT_RE_DEPLOYMENT          }
+  - {srcDbName: oracle, srcTableName: ACT_RE_MODEL               ,tarDbName: mysql, tarTableName: ACT_RE_MODEL               }
+  - {srcDbName: oracle, srcTableName: ACT_RE_PROCDEF             ,tarDbName: mysql, tarTableName: ACT_RE_PROCDEF             }
+  - {srcDbName: oracle, srcTableName: ACT_RU_EVENT_SUBSCR        ,tarDbName: mysql, tarTableName: ACT_RU_EVENT_SUBSCR        }
+  - {srcDbName: oracle, srcTableName: ACT_RU_EXECUTION           ,tarDbName: mysql, tarTableName: ACT_RU_EXECUTION           }
+  - {srcDbName: oracle, srcTableName: ACT_RU_IDENTITYLINK        ,tarDbName: mysql, tarTableName: ACT_RU_IDENTITYLINK        }
+  - {srcDbName: oracle, srcTableName: ACT_RU_JOB                 ,tarDbName: mysql, tarTableName: ACT_RU_JOB                 }
+  - {srcDbName: oracle, srcTableName: ACT_RU_TASK                ,tarDbName: mysql, tarTableName: ACT_RU_TASK                }
+  - {srcDbName: oracle, srcTableName: ACT_RU_VARIABLE            ,tarDbName: mysql, tarTableName: ACT_RU_VARIABLE            }

@@ -1,0 +1,51 @@
+# 定时任务配置
+runOnStart: true
+runOnSchedule: false
+scheduleCron: "0 0 1 * * ?"
+
+# 数据源配置: Map结构,key为DbName字符串,value为详细配置信息
+dataSourceConfigMap:
+  oracle:
+    driverClassName: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@10.10.128.102:1521:leasing
+    username: chengtayleasing
+    password: "!QAZ2wsx"
+  mysql:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://10.10.128.106:3307/admin?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+
+    
+# 数据移动配置: List结构
+dataSyncConfigList: 
+
+# 表同步: oracle --> mysql
+  - {srcDbName: oracle, srcTableName: BF_ACCOUNT_ROLE              ,tarDbName: mysql, tarTableName: BF_ACCOUNT_ROLE              }
+  - {srcDbName: oracle, srcTableName: BF_BANK                      ,tarDbName: mysql, tarTableName: BF_BANK                      }
+  - {srcDbName: oracle, srcTableName: BF_BUSINESS_USER             ,tarDbName: mysql, tarTableName: BF_BUSINESS_USER             }
+  - {srcDbName: oracle, srcTableName: BF_BUSINESS_USER_EXPAND      ,tarDbName: mysql, tarTableName: BF_BUSINESS_USER_EXPAND      }
+  - {srcDbName: oracle, srcTableName: BF_DICTITEM                  ,tarDbName: mysql, tarTableName: BF_DICTITEM                  }
+  - {srcDbName: oracle, srcTableName: BF_DICTVALUE                 ,tarDbName: mysql, tarTableName: BF_DICTVALUE                 }
+  - {srcDbName: oracle, srcTableName: BF_LOGINFAILLOG              ,tarDbName: mysql, tarTableName: BF_LOGINFAILLOG              }
+  - {srcDbName: oracle, srcTableName: BF_LOGINLOG                  ,tarDbName: mysql, tarTableName: BF_LOGINLOG                  }
+  - {srcDbName: oracle, srcTableName: BF_MENU                      ,tarDbName: mysql, tarTableName: BF_MENU                      }
+  - {srcDbName: oracle, srcTableName: BF_MENUFUNC                  ,tarDbName: mysql, tarTableName: BF_MENUFUNC                  }
+  - {srcDbName: oracle, srcTableName: BF_ORGANIZATION              ,tarDbName: mysql, tarTableName: BF_ORGANIZATION              }
+  - {srcDbName: oracle, srcTableName: BF_ORG_BUSINESSSEGMENTS      ,tarDbName: mysql, tarTableName: BF_ORG_BUSINESSSEGMENTS      }
+  - {srcDbName: oracle, srcTableName: BF_POST_ROLE                 ,tarDbName: mysql, tarTableName: BF_POST_ROLE                 }
+  - {srcDbName: oracle, srcTableName: BF_REGION                    ,tarDbName: mysql, tarTableName: BF_REGION                    }
+  - {srcDbName: oracle, srcTableName: BF_ROLE                      ,tarDbName: mysql, tarTableName: BF_ROLE                      }
+  - {srcDbName: oracle, srcTableName: BF_ROLE_MENU                 ,tarDbName: mysql, tarTableName: BF_ROLE_MENU                 }
+  - {srcDbName: oracle, srcTableName: BF_SYSTEMPARAMETER           ,tarDbName: mysql, tarTableName: BF_SYSTEMPARAMETER           }
+  - {srcDbName: oracle, srcTableName: BF_USER                      ,tarDbName: mysql, tarTableName: BF_USER                      }
+  - {srcDbName: oracle, srcTableName: BF_USER_HANDOVER_LOG         ,tarDbName: mysql, tarTableName: BF_USER_HANDOVER_LOG         }
+  - {srcDbName: oracle, srcTableName: SYS_DICTTREE                 ,tarDbName: mysql, tarTableName: SYS_DICTTREE                 }
+  - {srcDbName: oracle, srcTableName: CTC_DIFF_RECORD              ,tarDbName: mysql, tarTableName: CTC_DIFF_RECORD              }
+  - {srcDbName: oracle, srcTableName: CTC_CONFIG_EMAIL             ,tarDbName: mysql, tarTableName: CTC_CONFIG_EMAIL             }
+  - {srcDbName: oracle, srcTableName: CTC_CONFIG_MESSAGE_TEMPLATE  ,tarDbName: mysql, tarTableName: CTC_CONFIG_MESSAGE_TEMPLATE  }
+  - {srcDbName: oracle, srcTableName: CTC_INNER_MSG                ,tarDbName: mysql, tarTableName: CTC_INNER_MSG                }
+  - {srcDbName: oracle, srcTableName: CTC_MESSAGE_SEND_RECORD      ,tarDbName: mysql, tarTableName: CTC_MESSAGE_SEND_RECORD      }
+  - {srcDbName: oracle, srcTableName: BF_FILEMANAGE                ,tarDbName: mysql, tarTableName: BF_FILEMANAGE                }
+  - {srcDbName: oracle, srcTableName: CTC_CUSTOMER_DOC             ,tarDbName: mysql, tarTableName: CTC_CUSTOMER_DOC             }
+  - {srcDbName: oracle, srcTableName: CTC_CONTRACT_FILE_DELIVERY   ,tarDbName: mysql, tarTableName: CTC_CONTRACT_FILE_DELIVERY   }

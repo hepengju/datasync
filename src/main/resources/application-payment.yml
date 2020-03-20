@@ -1,0 +1,29 @@
+# 定时任务配置
+runOnStart: true
+runOnSchedule: false
+scheduleCron: "0 0 1 * * ?"
+
+# 数据源配置: Map结构,key为DbName字符串,value为详细配置信息
+dataSourceConfigMap:
+  oracle:
+    driverClassName: oracle.jdbc.OracleDriver
+    jdbcUrl: jdbc:oracle:thin:@10.10.128.102:1521:leasing
+    username: chengtayleasing
+    password: "!QAZ2wsx"
+  mysql:
+      driverClassName: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://10.10.128.106:3307/payment?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+
+    
+# 数据移动配置: List结构
+dataSyncConfigList: 
+
+# 表同步: oracle --> mysql
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_BANK                            ,tarDbName: mysql, tarTableName: CTC_PAYMENT_BANK                            }
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_BANK_CREDITLINE                 ,tarDbName: mysql, tarTableName: CTC_PAYMENT_BANK_CREDITLINE                 }
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_CHANNEL                         ,tarDbName: mysql, tarTableName: CTC_PAYMENT_CHANNEL                         }
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_CHANNEL_TYPE                    ,tarDbName: mysql, tarTableName: CTC_PAYMENT_CHANNEL_TYPE                    }
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_ORDER                           ,tarDbName: mysql, tarTableName: CTC_PAYMENT_ORDER                           }
+  - {srcDbName: oracle, srcTableName: CTC_PAYMENT_SOURCE_ORDER                    ,tarDbName: mysql, tarTableName: CTC_PAYMENT_SOURCE_ORDER                    }
